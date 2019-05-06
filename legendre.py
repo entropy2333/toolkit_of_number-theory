@@ -21,7 +21,8 @@ def legendre(a,p):
         return 1
     else:
         return -1
-def is_quadratic_residue_lengedre(a,p):
+
+def is_quadratic_residue_legendre(a,p):
     flag = legendre(a, p)
     if (flag == 1):
         print(a, "是", p, "的二次剩余")

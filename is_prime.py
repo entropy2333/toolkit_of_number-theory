@@ -54,7 +54,7 @@ def is_prime(n):
     
     flag = True
     for x in L:
-        if n % x == 0:
+        if n % x == 0 and n != x:
             flag = False
             break
         else:
