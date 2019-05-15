@@ -23,3 +23,14 @@ def __multi(array, bin_array, mod):
         result *= a
         result = result % mod # 加快连乘的速度
     return result  
+
+
+# 4.7
+# l = [6, 14, 17 ,19]
+# print('p','a','模p平方根')
+# for x in l:
+#     root = exp_mod(x, (2011 + 1)//4, 2011)
+#     print(2011, x, '±', root)
+# for x in l:
+#     root = exp_mod(x, (20190227 + 1)//4, 20190227)
+#     print(201190227, x, '±', root)
