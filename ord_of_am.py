@@ -4,14 +4,40 @@ from euler import euler
 from factoring import factoring
 
 def ord_of_am(a, m):
-    for _ in range(1, m):
-        mod = exp_mod(a, _, m)
-        if mod == 1:
+    # a,m需互素
+    if ext_gcd(a, m)[0] == 1:
+        euler_ = euler(m)
+        for _ in range(1, euler(m)):
+            # 指数整除euler(m)
+            if euler_ % _ == 0:
+                mod = exp_mod(a, _, m)
+                if mod == 1:
+                    return _
+        return euler(m)
+
+def primitive_root(p):
+    euler_ = euler(p)
+    for _ in range(2, p):
+        if ord_of_am(_, p) == euler_:
+            # print(_)
             return _
-def primitive_root():
-    pass
-def all_primitive_roots():
-    pass
+            # print(_,end=',')
+    # print('\n')
+
+def all_primitive_roots(p):
+    root = primitive_root(p)
+    euler_ = euler(p)
+    root_list = []
+    for _ in range(2, euler_):
+        # 指数与euler(m)互素
+        if ext_gcd(_, euler_)[0] == 1:
+            root_list.append(_)
+            # print(_, end=',')
+    return root_list
+# print(euler(20000))
+# print(ord_of_am(11,20000))
+# primitive_root(2000)
+# print(all_primitive_roots(9973))
 
 # print(17)
 # for _ in range(2, 17):
@@ -46,7 +72,8 @@ def all_primitive_roots():
 # print(ord_of_am(b11,3631))
 # print(ord_of_am(a15*b11,3631))
 
-# num_list = [17,19,191,311,313,2011,2017]
+# num_list1 = [17,19,191,311,313,2011,2017]
+# num_list = [2017]
 # for p in num_list:
 #     print(p,"的原根是",end=":")
 #     euler_ = euler(p)
@@ -54,5 +81,5 @@ def all_primitive_roots():
 #         if ord_of_am(_, p) == euler_:
 #             print(_)
 #             break
-#             #  print(_,end=',')
+#             # print(_,end=',')
 #     # print('\n')
