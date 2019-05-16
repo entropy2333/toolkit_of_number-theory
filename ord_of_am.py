@@ -1,12 +1,18 @@
 from exp_mod import exp_mod
 from gcd import ext_gcd
 from euler import euler
+from factoring import factoring
 
 def ord_of_am(a, m):
     for _ in range(1, m):
         mod = exp_mod(a, _, m)
         if mod == 1:
             return _
+def primitive_root():
+    pass
+def all_primitive_roots():
+    pass
+
 # print(17)
 # for _ in range(2, 17):
 #     print(_, "的指数是", ord_of_am(_, 17))
@@ -42,9 +48,11 @@ def ord_of_am(a, m):
 
 # num_list = [17,19,191,311,313,2011,2017]
 # for p in num_list:
-#     print(p,"的原根有:")
+#     print(p,"的原根是",end=":")
 #     euler_ = euler(p)
 #     for _ in range(2, p):
 #         if ord_of_am(_, p) == euler_:
-#             print(_,end=',')
-#     print('\n')
+#             print(_)
+#             break
+#             #  print(_,end=',')
+#     # print('\n')
