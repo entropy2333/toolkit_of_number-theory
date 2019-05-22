@@ -34,6 +34,7 @@ def all_primitive_roots(p):
             root_list.append(_)
             # print(_, end=',')
     return root_list
+
 # print(euler(20000))
 # print(ord_of_am(11,20000))
 # primitive_root(2000)
@@ -83,3 +84,14 @@ def all_primitive_roots(p):
 #             break
 #             # print(_,end=',')
 #     # print('\n')
+
+# l = [17, 19, 191, 311, 313, 2011, 2017]
+# for p in l:
+#     g = primitive_root(p) 
+#     flag = exp_mod(g, p-1, p*p)
+#     flag = (flag - 1) // p
+#     flag = ext_gcd(flag, p)[0]
+#     if flag == 1:
+#         print("模p^2原根：", g, "模p^α原根：", g)
+#     else:
+#         print("模p^2原根：", g+p, "模p^α原根：", g+p)
