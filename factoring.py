@@ -78,4 +78,5 @@ def factoring(n):
             return result
     #考虑参数本身就是素数的情况
     if not result:
-        return n
+        result.append(n)
+        return result
